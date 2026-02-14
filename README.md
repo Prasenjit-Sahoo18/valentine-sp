@@ -1,4 +1,4 @@
-# 💖 Valentine Special https://happyvalentinebutter-cup.netlify.app/
+# 💖 Valentine Special 
 
 A sweet, interactive Valentine's Day web app built with React — a digital love letter with a special question, photo gallery, and confetti celebration.
 
