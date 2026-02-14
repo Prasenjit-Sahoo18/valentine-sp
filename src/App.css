@@ -1,0 +1,361 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  overflow: hidden;
+}
+
+.container {
+  height: 100vh;
+  background: linear-gradient(135deg, #ff6a88, #ff99ac, #ffc3a0);
+  background-size: 300% 300%;
+  animation: gradientMove 10s ease infinite;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  text-align: center;
+}
+
+@keyframes gradientMove {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
+
+.main-title {
+  font-family: 'Great Vibes', cursive;
+  font-size: 3rem;
+  color: white;
+  text-shadow: 0 0 20px #ff1493;
+  margin-bottom: 20px;
+}
+
+.letter-btn {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 30px;
+  background: white;
+  color: #ff1493;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.letter-btn:hover {
+  transform: scale(1.1);
+}
+
+.letter {
+  margin-top: 30px;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 30px;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  width: 80%;
+  max-width: 500px;
+  animation: fadeIn 1s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0; transform: translateY(20px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+.yes-btn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: #ff1493;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+.love-msg {
+  margin-top: 20px;
+  color: white;
+  font-size: 1.5rem;
+  text-shadow: 0 0 10px red;
+}
+
+/* Falling Roses from Center */
+.roses {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.roses::before {
+  content: "🌹";
+  position: fixed;
+  left: 5%;
+  animation: fall 8s linear infinite;
+  font-size: 2rem;
+}
+
+.roses::after {
+  content: "🌸";
+  position: fixed;
+  left: 15%;
+  animation: fall 10s linear infinite 2s;
+  font-size: 2rem;
+}
+
+/* Hearts Animation */
+.hearts {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.hearts::before {
+  content: "💖 💕 💗 💝";
+  position: fixed;
+  width: 100%;
+  left: 0;
+  animation: floatHearts 6s linear infinite;
+  font-size: 1.5rem;
+  color: rgba(255, 20, 147, 0.6);
+}
+
+.hearts::after {
+  content: "💓 💞 ❤️";
+  position: fixed;
+  width: 100%;
+  left: 50%;
+  animation: floatHearts 8s linear infinite 1s;
+  font-size: 1.8rem;
+  color: rgba(255, 20, 147, 0.4);
+}
+
+/* Sparkles Animation */
+.sparkles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.sparkles::before {
+  content: "✨";
+  position: fixed;
+  animation: sparkle 4s ease-in-out infinite;
+  font-size: 1.5rem;
+  opacity: 0.7;
+}
+
+.sparkles::after {
+  content: "⭐";
+  position: fixed;
+  animation: sparkle 5s ease-in-out infinite 1s;
+  font-size: 1.2rem;
+  opacity: 0.5;
+}
+
+@keyframes fall {
+  0% { 
+    transform: translateY(-100vh) rotateZ(0deg);
+    opacity: 1;
+  }
+  50% { 
+    opacity: 1;
+  }
+  100% { 
+    transform: translateY(100vh) rotateZ(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes floatHearts {
+  0% { 
+    transform: translateY(-100vh) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% { 
+    transform: translateY(100vh) translateX(100px);
+    opacity: 0;
+  }
+}
+
+@keyframes sparkle {
+  0%, 100% { 
+    transform: translateY(0) scale(1);
+    opacity: 0;
+  }
+  50% { 
+    transform: translateY(-50vh) scale(1);
+    opacity: 1;
+  }
+}
+
+/* Background Raabta Music - Hidden */
+.background-music {
+  display: none;
+}
+
+.button-group {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.photos-btn {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.95);
+  color: #ff1493;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.photos-btn:hover {
+  transform: scale(1.1);
+}
+
+.modal {
+  display: flex;
+  position: fixed;
+  z-index: 500;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.3s ease;
+}
+
+.close {
+  position: absolute;
+  right: 30px;
+  top: 20px;
+  font-size: 35px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.close:hover {
+  color: #ff1493;
+}
+
+.gallery {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 40px;
+  border-radius: 30px;
+  backdrop-filter: blur(10px);
+  width: 90%;
+  max-width: 800px;
+  max-height: 85vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.gallery-header {
+  color: white;
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-shadow: 0 0 15px rgba(255, 20, 147, 0.8);
+  margin-bottom: 20px;
+}
+
+.photos-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  width: 100%;
+}
+
+.photo-item {
+  background: rgba(255, 20, 147, 0.1);
+  border-radius: 15px;
+  overflow: hidden;
+  text-align: center;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  transition: 0.3s;
+  animation: photoSlide 0.6s ease-out;
+}
+
+.photo-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(255, 20, 147, 0.5);
+  border-color: rgba(255, 20, 147, 0.8);
+}
+
+.photo-item img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  display: block;
+}
+
+.photo-item p {
+  color: white;
+  padding: 15px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  background: rgba(0, 0, 0, 0.3);
+  margin: 0;
+  text-shadow: 0 0 8px rgba(255, 20, 147, 0.6);
+}
+
+@keyframes photoSlide {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.gallery-item {
+  background: rgba(255, 20, 147, 0.2);
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: bold;
+  animation: bounce 3s ease infinite;
+  text-shadow: 0 0 10px rgba(255, 20, 147, 0.8);
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
